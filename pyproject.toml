@@ -5,9 +5,13 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "exploration-hackathon"
 version = "0.1.0"
-description = "Online 3D roadmap-graph exploration & surveillance hackathon (3 UAVs)"
+description = "3D roadmap-graph exploration & surveillance hackathon (3 UAVs)"
 readme = "README.md"
+license = "MIT"
 requires-python = ">=3.10"
+authors = [
+    { name = "Sam Eberl"},
+]
 dependencies = [
     "networkx>=3.0",
 ]

@@ -178,9 +178,8 @@ Export detailed runs to JSON with `run_eval.py --output`; see
    ```bash
    uv run run_eval.py --submission <team>_solution.py --graphs graphs/train --quiet
    ```
-3. **Hand in**: upload `<team>_solution.py` via the
-   [submission Google Form](https://forms.gle/YOUR_FORM_LINK_HERE) before the
-   deadline (include your team name and member names in the form).
+3. **Hand in**: upload `<team>_solution.py` when the submission link is
+   published (include your team name and member names).
 4. **Constraints**: Python stdlib plus dependencies declared in
    [`pyproject.toml`](../pyproject.toml). Submit a single policy file.
 
