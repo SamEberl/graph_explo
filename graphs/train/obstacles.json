@@ -2,7 +2,7 @@
   "directed": false,
   "multigraph": false,
   "graph": {
-    "name": "train_s1"
+    "name": "obstacles"
   },
   "nodes": [
     {

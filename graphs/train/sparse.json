@@ -2,7 +2,7 @@
   "directed": false,
   "multigraph": false,
   "graph": {
-    "name": "obstacles"
+    "name": "sparse"
   },
   "nodes": [
     {
