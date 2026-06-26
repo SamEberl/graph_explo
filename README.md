@@ -1,5 +1,9 @@
 # Graph Exploration & Surveillance Challenge
 
+<p align="center">
+  <img src="assets/graph-exploration-header.png" alt="3D graph exploration visualization with highlighted agent paths" width="800"/>
+</p>
+
 **Three UAVs** explore an unknown 3D graph. You control all three from one
 centralized policy: each tick you choose where every UAV flies next. You only see
 nodes within a few hops of each agent's position — no peeking through walls, only
