@@ -120,3 +120,9 @@ exploration_challenge/
     random_walk.py       # starter baseline + default eval policy
   _internal/             # config, progress, seeding, sensor
 ```
+
+## Demo
+
+<p align="center">
+  <img src="assets/demo.gif" alt="3D graph exploration demo — three UAVs exploring a building graph with Rerun visualization" width="800"/>
+</p>
