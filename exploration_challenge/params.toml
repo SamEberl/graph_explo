@@ -5,7 +5,7 @@
 explore_threshold = 0.9
 # Fraction of all nodes that must be RE-OBSERVED during surveillance.
 surveil_threshold = 0.9
-# Default graph JSONs (relative to graphs/train/); unset = all *.json there.
+# Default graph JSONs: bare filename (train/ then test/), test/foo.json, or graphs/test/foo.json; unset = all of graphs/train/.
 graphs = [
     "basic.json",
     "obstacles.json",

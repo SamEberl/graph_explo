@@ -106,15 +106,29 @@ def order_graph_basenames(basenames: list[str], preferred: list[str]) -> list[st
     return sorted(basenames, key=sort_key)
 
 
+def resolve_default_graph_target(name: str) -> str:
+    """Map a params.toml graph entry to a concrete filesystem path."""
+    if os.path.isabs(name):
+        return name
+    graphs_root = os.path.join(HERE, "graphs")
+    normalized = name.replace("/", os.sep)
+    if normalized.startswith("graphs" + os.sep):
+        return os.path.join(HERE, normalized)
+    if normalized.startswith(("train" + os.sep, "test" + os.sep)):
+        return os.path.join(graphs_root, normalized)
+    for subdir in ("train", "test"):
+        candidate = os.path.join(graphs_root, subdir, name)
+        if os.path.isfile(candidate):
+            return candidate
+    return os.path.join(graphs_root, "train", name)
+
+
 def default_graph_targets() -> list[str]:
     """Resolve default graph paths from params.toml [eval].graphs or graphs/train/."""
     train_dir = os.path.join(HERE, "graphs", "train")
     names = eval_params().get("graphs")
     if names:
-        return [
-            name if os.path.isabs(name) else os.path.join(train_dir, name)
-            for name in names
-        ]
+        return [resolve_default_graph_target(name) for name in names]
     return [train_dir]
 
 
@@ -162,7 +176,8 @@ def main() -> None:
         nargs="+",
         default=None,
         help="Graph JSON file(s) or director(ies). "
-             "Defaults to [eval].graphs in params.toml, or all of graphs/train/.",
+             "Defaults to [eval].graphs in params.toml, or all of graphs/train/. "
+             "Bare filenames in params.toml resolve under graphs/train/ then graphs/test/.",
     )
     parser.add_argument("--seeds", type=int, default=cfg["seeds"],
                         help="Number of seeds per graph (results averaged).")
